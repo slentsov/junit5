@@ -1,19 +1,16 @@
 package tag_annotation;
 
 import exception.BackToTheFutureException;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import services.DateServiceImpl;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayName("Tests with tags")
 public class SimpleTest {
 
     private static final int PRESENT_YEAR = 1985;
@@ -40,7 +37,7 @@ public class SimpleTest {
     @Tag("Timeout")
     public void testGetRandomDateWithTimeout() {
         int period = 30;
-        assertTimeout(Duration.of(1, ChronoUnit.MILLIS), () -> new DateServiceImpl().getRandomDate(presentTime, period));
+        assertTimeout(Duration.of(2, ChronoUnit.MILLIS), () -> new DateServiceImpl().getRandomDate(presentTime, period));
     }
 
     @Test

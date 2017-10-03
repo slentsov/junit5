@@ -32,7 +32,7 @@ public class RepeatedTests {
     @TestFactory
     @RepeatedTest(value = 10, name = "{displayName} {currentRepetition}/{totalRepetitions}")
     Stream<DynamicNode> testRepeatedTenTimes() {
-        return IntStream.generate(() -> (int)(Math.random()*1000))
+        return IntStream.generate(() -> (int)(Math.random() * 1000))
                 .limit(5)
                 .mapToObj(number -> dynamicContainer("Test with postive period " + number,
                         Stream.of(

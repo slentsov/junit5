@@ -9,7 +9,7 @@ import java.util.Calendar;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.DynamicContainer.dynamicContainer;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
@@ -28,9 +28,15 @@ public class RepeatedTests {
         presentTime.set(PRESENT_YEAR, PRESENT_MONTH, PRESENT_DAY);
     }
 
+    @DisplayName("Repeat test")
+    @RepeatedTest(value = 20, name = "{currentRepetition}/{totalRepetitions}")
+//    @RepeatedTest(5)
+    void testRepeatedTenTimesOneTest() {
+        assertNotEquals(new DateServiceImpl().getRandomDate(presentTime, 5), presentTime);
+    }
 
     @TestFactory
-    @RepeatedTest(value = 10, name = "{displayName} {currentRepetition}/{totalRepetitions}")
+    @RepeatedTest(value = 10, name = "{currentRepetition}/{totalRepetitions}")
     Stream<DynamicNode> testRepeatedTenTimes() {
         return IntStream.generate(() -> (int)(Math.random() * 1000))
                 .limit(5)
@@ -39,10 +45,5 @@ public class RepeatedTests {
                                 dynamicTest("regular period", () -> assertNotEquals(new DateServiceImpl().getRandomDate(presentTime, number), presentTime)),
                                 dynamicTest("2x period", () -> assertNotEquals(new DateServiceImpl().getRandomDate(presentTime, number * 2), presentTime)),
                                 dynamicTest("5x period", () -> assertNotEquals(new DateServiceImpl().getRandomDate(presentTime, number * 5), presentTime)))));
-    }
-
-    @RepeatedTest(value = 10, name = "{displayName} {currentRepetition}/{totalRepetitions}")
-    void testRepeatedTenTimesOneTest() {
-        assertNotEquals(new DateServiceImpl().getRandomDate(presentTime, 5), presentTime);
     }
 }

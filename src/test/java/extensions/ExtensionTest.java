@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.Random;
 import java.util.stream.LongStream;
@@ -15,17 +16,11 @@ public class ExtensionTest {
 
     @Test
     @ExtendWith(TimingExtension.class)
-    @MethodSource("provideLongs")
-    void testExtension(long pause) {
+    void testExtension() {
         try {
-            Thread.sleep(pause);
+            Thread.sleep(5);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-    }
-
-    static Stream<Arguments> provideLongs() {
-            return LongStream.generate(() -> new Random().nextLong())
-                    .mapToObj(Arguments::of);
     }
 }

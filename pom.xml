@@ -63,7 +63,7 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -71,14 +71,14 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- Only required to run tests in an IDE that bundles an older version -->
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-launcher</artifactId>
-            <version>${junit.platform.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- Only required to run tests in an IDE that bundles an older version -->
+        <!--&lt;!&ndash; Only required to run tests in an IDE that bundles an older version &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.junit.platform</groupId>-->
+            <!--<artifactId>junit-platform-launcher</artifactId>-->
+            <!--<version>${junit.platform.version}</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash; Only required to run tests in an IDE that bundles an older version &ndash;&gt;-->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -93,17 +93,17 @@
             <scope>test</scope>
         </dependency>
         <!-- Only required to run tests in an IDE that bundles an older version -->
-        <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <version>${junit.vintage.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-console-standalone</artifactId>
-            <version>1.0.0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.junit.vintage</groupId>-->
+            <!--<artifactId>junit-vintage-engine</artifactId>-->
+            <!--<version>${junit.vintage.version}</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.junit.platform</groupId>-->
+            <!--<artifactId>junit-platform-console-standalone</artifactId>-->
+            <!--<version>1.0.0</version>-->
+        <!--</dependency>-->
     </dependencies>
 
 </project>

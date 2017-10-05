@@ -5,7 +5,8 @@ import services.DateServiceImpl;
 
 import java.util.Calendar;
 
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
 
 public class SimpleTest {
 
@@ -18,6 +19,6 @@ public class SimpleTest {
         Calendar presentTime = Calendar.getInstance();
         presentTime.set(PRESENT_YEAR, PRESENT_MONTH, PRESENT_DAY);
         int period = 30;
-        assertNotEquals("It's not a our time Marty", new DateServiceImpl().getRandomDate(presentTime, period), presentTime);
+        assertNotEquals(presentTime, new DateServiceImpl().getRandomDate(presentTime, period), "It's not a our time Marty");
     }
 }

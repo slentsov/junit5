@@ -40,7 +40,7 @@ public class DynamicTest {
     @DisplayName("test factory with collection of dynamic tests")
     Stream<org.junit.jupiter.api.DynamicTest> testEverythingStream() {
         return IntStream.iterate(3, previous -> previous + 1)
-                .limit(5)
+                .limit(97)
                 .mapToObj(number -> dynamicTest("Test number " + number, () -> assertTrue(true)));
     }
 

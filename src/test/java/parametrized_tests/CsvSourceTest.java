@@ -7,9 +7,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 import parametrized_tests.util.MovieHero;
 import parametrized_tests.util.HeroesConverter;
 
-import java.util.stream.Stream;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import static org.junit.Assert.assertTrue;
 
 @DisplayName("Test that represents the CSV source")
 public class CsvSourceTest {
@@ -17,13 +16,13 @@ public class CsvSourceTest {
     @ParameterizedTest
     @CsvSource({"Marty, 1", "Doc, 2", "Max, 3"})
     void testMainRole(String name, int position) {
-        assertTrue("It is not main hero's name", "Marty".equals(name) || "Doc".equals(name));
-        assertTrue("It is not main hero's position", position < 3);
+        assertTrue("Marty".equals(name) || "Doc".equals(name), "It is not main hero's name");
+        assertTrue(position < 3, "It is not main hero's position");
     }
 
     @ParameterizedTest
     @CsvSource({"Marty", "Doc", "Max"})
     void testMainRole(@ConvertWith(HeroesConverter.class) MovieHero hero) {
-        assertTrue("It is not main hero's name", hero != null);
+        assertTrue(hero != null, "It is not main hero's name");
     }
 }

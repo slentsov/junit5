@@ -6,15 +6,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import services.DateServiceImpl;
 
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 import java.util.Calendar;
 
 import static java.time.Duration.ofMillis;
 import static java.time.Duration.ofNanos;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTimeout;
 import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
@@ -34,14 +29,14 @@ public class SimpleTest {
 
     @Test
     @DisplayName("Test with exception expectation")
-    public void testGetRandomDateWithException() {
+    void testGetRandomDateWithException() {
         int period = 0;
         assertThrows(BackToTheFutureException.class, () -> new DateServiceImpl().getRandomDate(null, period));
     }
 
     @Test
     @DisplayName("Test with timeout")
-    public void testGetRandomDateWithTimeout() {
+     void testGetRandomDateWithTimeout() {
         int period = 30;
         assertTimeout(ofMillis(1), () -> new DateServiceImpl().getRandomDate(presentTime, period));
     }

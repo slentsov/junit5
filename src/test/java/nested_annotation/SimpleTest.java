@@ -10,7 +10,7 @@ import java.util.Calendar;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("When Marty tried to fill proper date")
+@DisplayName("When Marty tried to type proper date")
 public class SimpleTest {
 
     private static final int PRESENT_YEAR = 1985;

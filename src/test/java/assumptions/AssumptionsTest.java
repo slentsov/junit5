@@ -1,5 +1,6 @@
 package assumptions;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -28,6 +29,7 @@ public class AssumptionsTest {
     @Test
     @ParameterizedTest
     @ValueSource(strings ={"Marty", "Doc", "Rock"})
+    @Disabled
     void testTrueDocAssumption(String heroName) {
         assumingThat(Arrays.stream(MovieHero.values())
                 .anyMatch(hero -> hero.name().equals(heroName.toUpperCase())),
